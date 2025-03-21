@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lareen trendware</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Emblema+One&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section class="flash-sale">
+    <h2>Flash Sale Ends In: <span id="countdown"></span></h2>
+</section>
+<header>
+  <img src="images/lareen-kigen-logo.png" alt="logo of lareen trendware" class="logo">
+   <main class="main-container">
+    <a href="index.html" class="home-links">HOME</a>
+    <a href="about.html" class="home-links">ABOUT US</a>
+    <a href="cart.html" class="home-links">MY SHOP</a>
+    <a href="#" class="home-links">SIGN UP</a>
+    <a href="#" class="home-links">SIGN IN</a>
+   </main>
+</header>
+<div class="heading">
+  
+  <section class="header-info">
+    <h2 class="welcome-h2">Home Of Fashion & Products😍</h2>
+    <p>Home of Fashion & Products is your ultimate destination for trendy apparel, 
+    stylish accessories, and high-quality essentials. Discover the latest fashion, beauty, 
+    and lifestyle products, curated to elevate your style and everyday living with elegance and convenience.</p>
+    <button class="button home-button">SEE OUR COLLECTIONS</button>
+  </section>
+  
+  <img class="home-img" src="images/dress1.jpg" alt="image of lady holding a dress">
+</div>
+        
+    
+<div class="products">
+    
+  <div class="product">
+    <img src="images/dress3.jpeg" alt="image of a dress" class="product-image">
+    <h2>Dress Elegant African</h2>
+    <p>KES 10000.00</p>
+    <button class="add-to-cart button" data-id="dress3" data-name="Dress Elegant African" data-price="10000">Buy</button>
+</div>
+
+<div class="product">
+    <img src="images/dress4.jpeg" alt="image of a dress" class="product-image">
+    <h2>Semi-Turkey Stylish</h2>
+    <p>KES 1500.00</p>
+    <button class="add-to-cart button" data-id="dress4" data-name="Semi-Turkey Stylish" data-price="1500">Buy</button>
+</div>
+
+<div class="product">
+    <img src="images/kid2.jpeg" alt="image of a dress" class="product-image">
+    <h2>Catpapa 0-3 Yrs Baby Girl</h2>
+    <p>KES 12000.00</p>
+    <button class="add-to-cart button" data-id="kid2" data-name="Catpapa 0-3 Yrs Baby Girl" data-price="12000">Buy</button>
+</div>
+
+<div class="product">
+    <img src="images/suit.jpeg" alt="image of a dress" class="product-image">
+    <h2>White Ankara</h2>
+    <p>KES 3210.00</p>
+    <button class="add-to-cart button" data-id="suit1" data-name="White Ankara" data-price="3210">Buy</button>
+</div>
+
+<div class="product">
+    <img src="images/suit2.jpeg" alt="image of a dress" class="product-image">
+    <h2>Brown Fitting Suit</h2>
+    <p>KES 3400.00</p>
+    <button class="add-to-cart button" data-id="suit2" data-name="Brown Fitting Suit" data-price="3400">Buy</button>
+</div>
+
+    <!-- Cart Button with Counter -->
+    <div class="cart-container">
+        <button id="cart-button" onclick="goToCart()">
+            🛒 Cart <span id="cart-counter">0</span>
+        </button>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img id="modal-img" src="" alt="Product Image">
+      <h3 id="modal-title"></h3>
+      <p id="modal-price"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

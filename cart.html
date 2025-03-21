@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Your Cart</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Product Image</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items"></tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" style="text-align: right;"><strong>Total:</strong></td>
+                <td id="cart-total"><strong>KES 0.00</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <button onclick="clearCart()">Clear Cart</button>
+    <a href="index.html">Continue Shopping</a>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            loadCart();
+        });
+    
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let cartItemsContainer = document.getElementById("cart-items");
+            let cartTotal = 0; // Initialize total
+    
+            cartItemsContainer.innerHTML = ""; // Clear previous entries
+    
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = "<tr><td colspan='6'>Your cart is empty</td></tr>";
+            } else {
+                cart.forEach((item, index) => {
+                    let subtotal = item.price * item.quantity; // Calculate subtotal
+                    cartTotal += subtotal; // Add to total
+    
+                    let row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td><img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px;"></td>
+                        <td>${item.name}</td>
+                        <td>${item.quantity}</td>
+                        <td>KES ${item.price.toFixed(2)}</td>
+                        <td class="subtotal">KES ${subtotal.toFixed(2)}</td>
+                        <td><button onclick="deleteItem(${index})" class="delete-btn">❌</button></td>
+                    `;
+                    cartItemsContainer.appendChild(row);
+                });
+    
+                // Update total row
+                document.getElementById("cart-total").innerHTML = `<strong>KES ${cartTotal.toFixed(2)}</strong>`;
+            }
+        }
+    
+        function deleteItem(index) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+            if (index > -1) {
+                cart.splice(index, 1); // Remove item from cart array
+                localStorage.setItem("cart", JSON.stringify(cart)); // Update local storage
+                loadCart(); // Reload cart display
+            }
+        }
+    
+        function clearCart() {
+            localStorage.removeItem("cart");
+            loadCart();
+        }
+    </script>
+    
+    
+</body>
+</html>
